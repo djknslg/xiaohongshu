@@ -41,12 +41,12 @@ private RedisTemplate<String,Object> redisTemplate;
 			throw new BizException(ResponseCodeEnum.VERIFICATION_CODE_SEND_FREQUENTLY);
 		}
 		//生成6为验证码
-		RandomUtil.randomNumbers(6);
+		final String numbers = RandomUtil.randomNumbers(6);
 		//todo 调用第三方短信发送
 		log.info("==> 手机号: {}, 已发送验证码：【{}】", phone, sendVerificationCodeReqVO);
 
 		// 存储验证码到 redis, 并设置过期时间为 3 分钟
-		redisTemplate.opsForValue().set(key, sendVerificationCodeReqVO, 3, TimeUnit.MINUTES);
+		redisTemplate.opsForValue().set(key, numbers, 30, TimeUnit.MINUTES);
 
 		return Response.success();
 	}

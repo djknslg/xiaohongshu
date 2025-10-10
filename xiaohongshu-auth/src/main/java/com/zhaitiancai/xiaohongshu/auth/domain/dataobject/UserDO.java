@@ -14,8 +14,33 @@ import java.util.Date;
 public class UserDO {
     private Long id;
 
-    private String username;
+    private String xiaohashuId;
+
+    private String password;
+
+    private String nickname;
+
+    private String avatar;
+
+    private Date birthday;
+
+    private String backgroundImg;
+
+    private String phone;
+
+    private int sex;
+
+    private int status;
+
+    private String introduction;
 
     private LocalDateTime createTime;
+
     private LocalDateTime updateTime;
+
+    private Boolean isDeleted;
+
+    public void setIsDeleted(Boolean isDeleted) {
+        this.isDeleted = isDeleted; // 将传入的isDeleted参数值赋给当前对象的isDeleted属性
+    }
 }

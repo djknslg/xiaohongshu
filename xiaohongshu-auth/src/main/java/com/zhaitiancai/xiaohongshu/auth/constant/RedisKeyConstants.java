@@ -20,4 +20,23 @@ public class RedisKeyConstants {
     public static String buildVerificationCodeKey(String phone) {
         return VERIFICATION_CODE_KEY_PREFIX + phone;
     }
+    /**
+     * 添加全局id生成器
+     *
+     */
+    public static final String XIAOHONGSHU_ID_GENERATOR_KEY="xiaohongshu_id_generator";
+    /**
+     * 用户角色数据 KEY 前缀
+     */
+    private static final String USER_ROLES_KEY_PREFIX = "user:roles:";
+
+
+    /**
+     * 构建用户-角色 Key
+     * @param phone
+     * @return
+     */
+    public static String buildUserRoleKey(String phone) {
+        return USER_ROLES_KEY_PREFIX + phone;
+    }
 }
