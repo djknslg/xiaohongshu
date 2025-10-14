@@ -49,7 +49,7 @@
     <guava.version>33.0.0-jre</guava.version>
     <hutool.version>5.8.26</hutool.version>
     <commons-lang3.version>3.12.0</commons-lang3.version>
-    <nacos-config.version>0.3.0-RC</nacos-config.version>
+    <nacos.version>2.4.2</nacos.version>
 
 
 
@@ -93,6 +93,7 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+
       <!-- Jackson -->
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
@@ -169,25 +170,23 @@
       </dependency>
       <!-- Nacos 配置中心 -->
       <dependency>
-        <groupId>com.alibaba.boot</groupId>
-        <artifactId>nacos-config-spring-boot-starter</artifactId>
-        <version>${nacos-config.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>org.yaml</groupId>
-            <artifactId>snakeyaml</artifactId>
-          </exclusion>
-        </exclusions>
+        <groupId>com.alibaba.nacos</groupId>
+        <artifactId>nacos-client</artifactId>
+        <version>${nacos.version}</version>
+        <!-- 指定纯净版SDK -->
+        <classifier>pure</classifier>
       </dependency>
-
+      <!-- 使用纯净版时必须要引入同版本nacos-api和nacos-common，否则可能出现运行时找不到类的问题 -->
       <dependency>
-        <groupId>org.yaml</groupId>
-        <artifactId>snakeyaml</artifactId>
-        <version>1.30</version>
+        <groupId>com.alibaba.nacos</groupId>
+        <artifactId>nacos-common</artifactId>
+        <version>${nacos.version}</version>
       </dependency>
-
-
-
+      <dependency>
+        <groupId>com.alibaba.nacos</groupId>
+        <artifactId>nacos-api</artifactId>
+        <version>${nacos.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
